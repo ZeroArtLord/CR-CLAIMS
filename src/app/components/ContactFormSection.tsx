@@ -178,33 +178,35 @@ export function ContactFormSection() {
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-3">
                     <label className="block text-sm font-light text-foreground">First Name</label>
-                    <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                    <div className="relative group">
+                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                       <input
                         type="text"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all placeholder:text-muted-foreground/40"
+                        className="w-full pl-12 pr-4 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 placeholder:text-muted-foreground/40 shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                         placeholder="First Name / Nombre"
                         required
                       />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <label className="block text-sm font-light text-foreground">Last Name</label>
-                    <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                    <div className="relative group">
+                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                       <input
                         type="text"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all placeholder:text-muted-foreground/40"
+                        className="w-full pl-12 pr-4 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 placeholder:text-muted-foreground/40 shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                         placeholder="Last Name / Apellido"
                         required
                       />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                     </div>
                   </div>
                 </div>
@@ -212,110 +214,115 @@ export function ContactFormSection() {
                 {/* Phone */}
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Phone</label>
-                  <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <div className="relative group">
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all placeholder:text-muted-foreground/40"
+                      className="w-full pl-12 pr-4 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 placeholder:text-muted-foreground/40 shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                       placeholder="Phone"
                       required
                     />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Email</label>
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <div className="relative group">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all placeholder:text-muted-foreground/40"
+                      className="w-full pl-12 pr-4 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 placeholder:text-muted-foreground/40 shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                       placeholder="Email Address"
                       required
                     />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Property Type */}
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Property Type</label>
-                  <div className="relative">
-                    <Home className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <div className="relative group">
+                    <Home className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                     <select
                       name="propertyType"
                       value={formData.propertyType}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none cursor-pointer"
+                      className="w-full pl-12 pr-10 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 appearance-none cursor-pointer shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                       required
                     >
-                      <option value="">Select property type / Tipo de propiedad</option>
-                      <option value="single-family">Single Family Home</option>
-                      <option value="condo">Condominium / Condominio</option>
-                      <option value="townhouse">Townhouse</option>
-                      <option value="apartment">Apartment / Apartamento</option>
-                      <option value="commercial">Commercial Property</option>
-                      <option value="multi-family">Multi-Family Building</option>
-                      <option value="other">Other / Otro</option>
+                      <option value="" className="text-muted-foreground/60">Select property type / Tipo de propiedad</option>
+                      <option value="single-family" className="text-foreground py-2">Single Family Home</option>
+                      <option value="condo" className="text-foreground py-2">Condominium / Condominio</option>
+                      <option value="townhouse" className="text-foreground py-2">Townhouse</option>
+                      <option value="apartment" className="text-foreground py-2">Apartment / Apartamento</option>
+                      <option value="commercial" className="text-foreground py-2">Commercial Property</option>
+                      <option value="multi-family" className="text-foreground py-2">Multi-Family Building</option>
+                      <option value="other" className="text-foreground py-2">Other / Otro</option>
                     </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg className="w-4 h-4 text-muted-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none transition-transform group-focus-within:rotate-180">
+                      <svg className="w-4 h-4 text-muted-foreground/60 group-focus-within:text-accent/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Damage Type */}
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Damage Type</label>
-                  <div className="relative">
-                    <AlertTriangle className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <div className="relative group">
+                    <AlertTriangle className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                     <select
                       name="damageType"
                       value={formData.damageType}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none cursor-pointer"
+                      className="w-full pl-12 pr-10 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 appearance-none cursor-pointer shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                       required
                     >
-                      <option value="">Select damage type / Tipo de daño</option>
-                      <option value="water">Water Damage / Daño por agua</option>
-                      <option value="storm">Storm & Hurricane Damage / Daño por tormenta o huracán</option>
-                      <option value="fire">Fire Damage / Daño por incendio</option>
-                      <option value="flood">Flood Damage / Daño por inundación</option>
-                      <option value="mold">Mold Damage / Daño por moho</option>
-                      <option value="wind">Wind Damage / Daño por viento</option>
-                      <option value="roof">Roof Damage / Daño en techo</option>
-                      <option value="other">Other / Otro</option>
+                      <option value="" className="text-muted-foreground/60">Select damage type / Tipo de daño</option>
+                      <option value="water" className="text-foreground py-2">Water Damage / Daño por agua</option>
+                      <option value="storm" className="text-foreground py-2">Storm & Hurricane Damage / Daño por tormenta o huracán</option>
+                      <option value="fire" className="text-foreground py-2">Fire Damage / Daño por incendio</option>
+                      <option value="flood" className="text-foreground py-2">Flood Damage / Daño por inundación</option>
+                      <option value="mold" className="text-foreground py-2">Mold Damage / Daño por moho</option>
+                      <option value="wind" className="text-foreground py-2">Wind Damage / Daño por viento</option>
+                      <option value="roof" className="text-foreground py-2">Roof Damage / Daño en techo</option>
+                      <option value="other" className="text-foreground py-2">Other / Otro</option>
                     </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg className="w-4 h-4 text-muted-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none transition-transform group-focus-within:rotate-180">
+                      <svg className="w-4 h-4 text-muted-foreground/60 group-focus-within:text-accent/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
                 {/* Message */}
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Message</label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-muted-foreground/60" />
+                  <div className="relative group">
+                    <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all placeholder:text-muted-foreground/40 resize-none"
+                      className="w-full pl-12 pr-4 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 placeholder:text-muted-foreground/40 resize-none shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
                       placeholder="Briefly describe your damage / Describa su daño"
                       required
                     />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
