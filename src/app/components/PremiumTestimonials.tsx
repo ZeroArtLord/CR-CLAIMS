@@ -72,7 +72,7 @@ export function PremiumTestimonials() {
         <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-8 lg:gap-12 items-stretch">
           {/* Summary */}
           <Reveal>
-            <div className="bg-white/90 backdrop-blur-sm rounded-[2rem] p-8 lg:p-10 shadow-elegant border border-accent/10 h-full flex flex-col justify-between">
+            <div className="bg-white sm:bg-white/90 sm:backdrop-blur-sm rounded-[2rem] p-8 lg:p-10 shadow-elegant border border-border/20 sm:border-accent/10 h-full flex flex-col justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-2">Average Rating</p>
                 <div className="flex items-center gap-3">
@@ -117,8 +117,8 @@ export function PremiumTestimonials() {
 
           {/* Testimonial Card */}
           <Reveal delay={90}>
-            <div className="relative bg-gradient-to-br from-accent/8 via-white to-white rounded-[2.5rem] p-10 lg:p-12 shadow-elegant border border-accent/10 h-full flex flex-col">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-[2.5rem] pointer-events-none"></div>
+            <div className="relative bg-white sm:bg-gradient-to-br sm:from-accent/8 sm:via-white sm:to-white rounded-[2.5rem] p-10 lg:p-12 shadow-elegant border border-border/20 sm:border-accent/10 h-full flex flex-col">
+              <div className="absolute inset-0 sm:bg-gradient-to-br sm:from-white/40 sm:via-transparent sm:to-transparent rounded-[2.5rem] pointer-events-none"></div>
 
               <div className="relative">
                 {/* Stars */}

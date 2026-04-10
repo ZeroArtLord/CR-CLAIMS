@@ -26,11 +26,11 @@ const stats = [
 
 export function TrustSection() {
   return (
-    <section className="py-16 lg:py-20 px-6 lg:px-12 xl:px-16 bg-gradient-to-b from-white to-background">
+    <section className="py-16 lg:py-20 px-6 lg:px-12 xl:px-16 bg-white sm:bg-gradient-to-b sm:from-white sm:to-background">
       <div className="max-w-[1400px] mx-auto">
-        <div className="bg-gradient-to-br from-accent/5 via-white to-accent/5 rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-16 border border-accent/10 shadow-xl shadow-black/5 relative overflow-hidden">
+        <div className="bg-white sm:bg-gradient-to-br sm:from-accent/5 sm:via-white sm:to-accent/5 rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-16 border border-border/20 sm:border-accent/10 shadow-xl shadow-black/5 relative overflow-hidden">
           {/* Soft lighting overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 sm:bg-gradient-to-br sm:from-white/60 sm:via-transparent sm:to-transparent pointer-events-none"></div>
           
           <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
             {stats.map((stat, index) => {
