@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import logoHorizontal from "../../assets/logo-horizontal.png";
 import logoVertical from "../../assets/logo-vertical.png";
@@ -54,25 +54,37 @@ export function Header() {
         </nav>
 
         {/* Language Toggle - Desktop */}
-        <div className="hidden lg:flex items-center gap-2 rounded-full border border-border/30 bg-white/70 px-1 py-1">
-          <button
-            onClick={() => setLang("en")}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              lang === "en" ? "bg-accent text-white" : "text-foreground/70 hover:text-foreground"
-            }`}
-            aria-label="Switch to English"
-          >
-            🇺🇸 EN
-          </button>
-          <button
-            onClick={() => setLang("es")}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              lang === "es" ? "bg-accent text-white" : "text-foreground/70 hover:text-foreground"
-            }`}
-            aria-label="Cambiar a español"
-          >
-            🇪🇸 ES
-          </button>
+        <div className="hidden lg:block">
+          <div className="relative group">
+            <button
+              className="flex items-center gap-2 rounded-full border border-border/30 bg-white/80 px-3 py-2 text-xs font-medium text-foreground/80 shadow-sm hover:text-foreground transition-colors"
+              aria-label="Language menu"
+            >
+              <span className="inline-flex items-center gap-2">
+                {lang === "en" ? "🇺🇸" : "🇪🇸"}
+                {lang === "en" ? "EN" : "ES"}
+              </span>
+              <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />
+            </button>
+            <div className="absolute right-0 mt-2 w-40 rounded-xl border border-border/40 bg-white/95 backdrop-blur-lg shadow-xl opacity-0 translate-y-1 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+              <button
+                onClick={() => setLang("en")}
+                className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-2 hover:bg-accent/10 ${
+                  lang === "en" ? "text-foreground" : "text-muted-foreground"
+                }`}
+              >
+                🇺🇸 English
+              </button>
+              <button
+                onClick={() => setLang("es")}
+                className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-2 hover:bg-accent/10 ${
+                  lang === "es" ? "text-foreground" : "text-muted-foreground"
+                }`}
+              >
+                🇪🇸 Español
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Desktop CTA */}
@@ -116,8 +128,8 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="mt-6 flex items-center justify-between rounded-full border border-border/30 bg-white/70 px-2 py-2">
-            <span className="text-xs text-muted-foreground px-2">Language</span>
+          <div className="mt-6 rounded-2xl border border-border/30 bg-white/70 px-4 py-3">
+            <p className="text-xs text-muted-foreground mb-2">Language</p>
             <div className="flex gap-2">
               <button
                 onClick={() => setLang("en")}
@@ -125,7 +137,7 @@ export function Header() {
                   lang === "en" ? "bg-accent text-white" : "text-foreground/70 hover:text-foreground"
                 }`}
               >
-                🇺🇸 EN
+                🇺🇸 English
               </button>
               <button
                 onClick={() => setLang("es")}
@@ -133,7 +145,7 @@ export function Header() {
                   lang === "es" ? "bg-accent text-white" : "text-foreground/70 hover:text-foreground"
                 }`}
               >
-                🇪🇸 ES
+                🇪🇸 Español
               </button>
             </div>
           </div>
