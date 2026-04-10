@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import logoVertical from "../../assets/logo-vertical.svg";
+import logoVertical from "../../assets/logo-vertical.png";
 
 export function Footer() {
   return (

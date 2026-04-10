@@ -1,5 +1,5 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import logoVertical from "../../assets/logo-vertical.svg";
+import logoVertical from "../../assets/logo-vertical.png";
 
 export function HeroSection() {
   return (

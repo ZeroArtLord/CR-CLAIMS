@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
-import logoHorizontal from "../../assets/logo-horizontal.svg";
-import logoVertical from "../../assets/logo-vertical.svg";
+import logoHorizontal from "../../assets/logo-horizontal.png";
+import logoVertical from "../../assets/logo-vertical.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
