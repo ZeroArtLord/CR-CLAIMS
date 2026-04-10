@@ -1,4 +1,5 @@
-﻿import { Droplets, Wind, Flame, Waves } from "lucide-react";
+import { Droplets, Wind, Flame, Waves } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const services = [
   {
@@ -44,53 +45,56 @@ export function PremiumServicesCards() {
     <section id="services" className="scroll-mt-24 py-20 lg:py-24 px-6 lg:px-12 xl:px-16 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-5 lg:mb-6 tracking-tight leading-tight text-foreground">
-            Claims We Handle
-          </h2>
-          <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Comprehensive property insurance claim support across Florida
-          </p>
+          <Reveal>
+            <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-5 lg:mb-6 tracking-tight leading-tight text-foreground">
+              Claims We Handle
+            </h2>
+            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Comprehensive property insurance claim support across Florida
+            </p>
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div
-                key={index}
-                className={`relative bg-gradient-to-br ${service.gradient} backdrop-blur-sm rounded-[2.25rem] lg:rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-xl shadow-black/8 hover:shadow-2xl hover:shadow-black/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer border border-white/60 flex flex-col`}
-              >
-                {/* Soft lighting effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent rounded-[2.25rem] lg:rounded-[2.5rem] pointer-events-none"></div>
+              <Reveal key={index} delay={index * 90}>
+                <div
+                  className={`relative bg-gradient-to-br ${service.gradient} backdrop-blur-sm rounded-[2.25rem] lg:rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-xl shadow-black/8 hover:shadow-2xl hover:shadow-black/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer border border-white/60 flex flex-col`}
+                >
+                  {/* Soft lighting effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent rounded-[2.25rem] lg:rounded-[2.5rem] pointer-events-none"></div>
 
-                <div className="relative">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 ${service.iconBg} rounded-[1.5rem] sm:rounded-[1.75rem] lg:rounded-[2rem] flex items-center justify-center mb-6 sm:mb-7 lg:mb-8 shadow-md shadow-black/5`}>
-                    <Icon className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 ${service.iconColor}`} strokeWidth={1.5} />
+                  <div className="relative">
+                    {/* Icon */}
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 ${service.iconBg} rounded-[1.5rem] sm:rounded-[1.75rem] lg:rounded-[2rem] flex items-center justify-center mb-6 sm:mb-7 lg:mb-8 shadow-md shadow-black/5`}>
+                      <Icon className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 ${service.iconColor}`} strokeWidth={1.5} />
+                    </div>
+
+                    {/* Title */}
+                    <div className="mb-4 lg:mb-5">
+                      <h3 className="text-[1.6rem] sm:text-[1.85rem] lg:text-[2rem] mb-3 sm:mb-4 lg:mb-4 tracking-tight leading-tight text-foreground">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-[0.9rem] sm:text-sm lg:text-base text-foreground/70 leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+
+                    {/* Learn More Link */}
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center text-accent hover:text-accent/80 text-sm font-medium transition-colors gap-1 mt-auto"
+                    >
+                      Learn More
+                      <span className="text-base">-&gt;</span>
+                    </a>
                   </div>
-
-                  {/* Title */}
-                  <div className="mb-4 lg:mb-5">
-                    <h3 className="text-[1.6rem] sm:text-[1.85rem] lg:text-[2rem] mb-3 sm:mb-4 lg:mb-4 tracking-tight leading-tight text-foreground">
-                      {service.title}
-                    </h3>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-[0.9rem] sm:text-sm lg:text-base text-foreground/70 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-
-                  {/* Learn More Link */}
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center text-accent hover:text-accent/80 text-sm font-medium transition-colors gap-1 mt-auto"
-                  >
-                    Learn More
-                    <span className="text-base">-&gt;</span>
-                  </a>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

@@ -1,4 +1,5 @@
 import { TrendingUp, Users, Clock, Award } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const stats = [
   {
@@ -35,17 +36,19 @@ export function TrustSection() {
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="text-center">
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 bg-accent/10 rounded-[1.25rem] lg:rounded-[1.5rem] flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-sm">
-                    <Icon className="w-7 h-7 lg:w-8 lg:h-8 text-accent" strokeWidth={1.5} />
+                <Reveal key={index} delay={index * 90}>
+                  <div className="text-center">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-accent/10 rounded-[1.25rem] lg:rounded-[1.5rem] flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-sm">
+                      <Icon className="w-7 h-7 lg:w-8 lg:h-8 text-accent" strokeWidth={1.5} />
+                    </div>
+                    <p className="text-2xl lg:text-3xl xl:text-4xl font-medium text-foreground mb-1 lg:mb-2 tracking-tight">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed">
+                      {stat.label}
+                    </p>
                   </div>
-                  <p className="text-2xl lg:text-3xl xl:text-4xl font-medium text-foreground mb-1 lg:mb-2 tracking-tight">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed">
-                    {stat.label}
-                  </p>
-                </div>
+                </Reveal>
               );
             })}
           </div>

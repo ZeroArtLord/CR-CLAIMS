@@ -1,4 +1,5 @@
-﻿import { Search, FileText, ClipboardCheck, Send, Handshake, CheckCircle2 } from "lucide-react";
+import { Search, FileText, ClipboardCheck, Send, Handshake, CheckCircle2 } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const steps = [
   {
@@ -38,12 +39,14 @@ export function ProcessTimeline() {
     <section id="process" className="scroll-mt-24 py-20 lg:py-24 px-6 lg:px-12 xl:px-16 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-14 lg:mb-20">
-          <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-4 lg:mb-6 tracking-tight text-foreground">
-            Our Claim Process
-          </h2>
-          <p className="text-muted-foreground lg:text-lg max-w-3xl mx-auto">
-            Clear steps that reduce stress and keep your claim organized from day one.
-          </p>
+          <Reveal>
+            <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-4 lg:mb-6 tracking-tight text-foreground">
+              Our Claim Process
+            </h2>
+            <p className="text-muted-foreground lg:text-lg max-w-3xl mx-auto">
+              Clear steps that reduce stress and keep your claim organized from day one.
+            </p>
+          </Reveal>
         </div>
 
         {/* Desktop: Horizontal Timeline */}
@@ -56,20 +59,22 @@ export function ProcessTimeline() {
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
-                  <div key={index} className="relative text-center">
-                    {/* Icon circle */}
-                    <div className="relative z-10 w-[3.75rem] h-[3.75rem] xl:w-16 xl:h-16 bg-accent rounded-[1.25rem] xl:rounded-[1.5rem] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-accent/20">
-                      <Icon className="w-6 h-6 xl:w-7 xl:h-7 text-white" />
-                    </div>
+                  <Reveal key={index} delay={index * 90}>
+                    <div className="relative text-center">
+                      {/* Icon circle */}
+                      <div className="relative z-10 w-[3.75rem] h-[3.75rem] xl:w-16 xl:h-16 bg-accent rounded-[1.25rem] xl:rounded-[1.5rem] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-accent/20">
+                        <Icon className="w-6 h-6 xl:w-7 xl:h-7 text-white" />
+                      </div>
 
-                    {/* Content */}
-                    <div>
-                      <h3 className="text-lg xl:text-xl mb-2 xl:mb-3 tracking-tight">{step.title}</h3>
-                      <p className="text-xs xl:text-sm text-muted-foreground leading-relaxed">
-                        {step.description}
-                      </p>
+                      {/* Content */}
+                      <div>
+                        <h3 className="text-lg xl:text-xl mb-2 xl:mb-3 tracking-tight">{step.title}</h3>
+                        <p className="text-xs xl:text-sm text-muted-foreground leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
@@ -86,20 +91,22 @@ export function ProcessTimeline() {
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={index} className="relative flex items-start gap-6">
-                  {/* Icon circle */}
-                  <div className="relative z-10 w-14 h-14 bg-accent rounded-[1.25rem] flex items-center justify-center flex-shrink-0 shadow-xl shadow-accent/25">
-                    <Icon className="w-6 h-6 text-white" strokeWidth={2} />
-                  </div>
+                <Reveal key={index} delay={index * 80}>
+                  <div className="relative flex items-start gap-6">
+                    {/* Icon circle */}
+                    <div className="relative z-10 w-14 h-14 bg-accent rounded-[1.25rem] flex items-center justify-center flex-shrink-0 shadow-xl shadow-accent/25">
+                      <Icon className="w-6 h-6 text-white" strokeWidth={2} />
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 pt-1">
-                    <h3 className="text-xl mb-3 tracking-tight text-foreground">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
+                    {/* Content */}
+                    <div className="flex-1 pt-1">
+                      <h3 className="text-xl mb-3 tracking-tight text-foreground">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
           </div>
