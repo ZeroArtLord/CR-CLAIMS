@@ -50,87 +50,140 @@ export function PremiumTestimonials() {
 
   return (
     <section id="reviews" className="scroll-mt-24 py-20 px-6 bg-background">
-      <div className="max-w-md mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <Reveal>
-            <h2 className="text-[2.25rem] mb-4 tracking-tight leading-tight text-foreground">Customer Reviews</h2>
-            <p className="text-base text-muted-foreground leading-relaxed">They have already used our services</p>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium text-foreground shadow-sm border border-border/30 mb-5">
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+              Google Reviews
+            </div>
+            <h2 className="text-[2.25rem] sm:text-[2.75rem] mb-4 tracking-tight leading-tight text-foreground">
+              Trusted by Florida Homeowners
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Real experiences from property owners who relied on our public adjusters.
+            </p>
           </Reveal>
         </div>
 
-        {/* Testimonial Card - Distinct with gradient background */}
-        <Reveal delay={80}>
-          <div className="relative bg-gradient-to-br from-accent/8 via-white to-white rounded-[2.5rem] p-10 shadow-xl shadow-black/8 mb-10 border border-accent/10">
-            {/* Soft lighting overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-[2.5rem] pointer-events-none"></div>
-
-            <div className="relative text-center">
-              {/* Stars */}
-              <div className="flex gap-1.5 mb-8 justify-center">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <div key={i} className="relative">
-                    <Star className="w-5 h-5 fill-accent text-accent drop-shadow-sm" strokeWidth={0} />
-                  </div>
-                ))}
-              </div>
-
-              {/* Quote */}
-              <blockquote className="text-[1.15rem] leading-[1.75] mb-10 text-foreground/90 tracking-tight">
-                "{testimonials[currentIndex].quote}"
-              </blockquote>
-
-              {/* Author info */}
+        <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-8 lg:gap-12 items-stretch">
+          {/* Summary */}
+          <Reveal>
+            <div className="bg-white rounded-[2rem] p-8 lg:p-10 shadow-xl shadow-black/6 border border-border/30 h-full flex flex-col justify-between">
               <div>
-                <p className="text-lg font-medium tracking-tight mb-1 text-foreground">{testimonials[currentIndex].name}</p>
-                <p className="text-sm text-muted-foreground mb-0.5">{testimonials[currentIndex].role}</p>
-                <p className="text-sm text-muted-foreground/70">{testimonials[currentIndex].location}</p>
+                <p className="text-sm text-muted-foreground mb-2">Average Rating</p>
+                <div className="flex items-center gap-3">
+                  <p className="text-4xl font-medium text-foreground">5.0</p>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-accent text-accent" strokeWidth={0} />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">Based on verified local reviews</p>
+              </div>
+
+              <div className="mt-8 space-y-4">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">Professionalism</span>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-accent text-accent" strokeWidth={0} />
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">Communication</span>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-accent text-accent" strokeWidth={0} />
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">Outcome</span>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-accent text-accent" strokeWidth={0} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        {/* Navigation */}
-        <Reveal delay={120}>
-          <div className="flex items-center justify-center gap-6 mb-6">
-            {/* Previous button */}
-            <button
-              onClick={prevTestimonial}
-              className="w-12 h-12 bg-white hover:bg-accent hover:text-white rounded-[1rem] flex items-center justify-center shadow-lg shadow-black/5 hover:shadow-xl transition-all duration-300 active:scale-95 border border-border/30"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
-            </button>
+          {/* Testimonial Card */}
+          <Reveal delay={90}>
+            <div className="relative bg-gradient-to-br from-accent/8 via-white to-white rounded-[2.5rem] p-10 lg:p-12 shadow-xl shadow-black/8 border border-accent/10 h-full flex flex-col">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-[2.5rem] pointer-events-none"></div>
 
-            {/* Dots indicator */}
-            <div className="flex gap-2.5">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    index === currentIndex
-                      ? "w-10 bg-accent shadow-md shadow-accent/30"
-                      : "w-2 bg-muted hover:bg-muted-foreground/30"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
+              <div className="relative">
+                {/* Stars */}
+                <div className="flex gap-1.5 mb-8">
+                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-accent text-accent drop-shadow-sm" strokeWidth={0} />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-[1.15rem] leading-[1.8] mb-10 text-foreground/90 tracking-tight">
+                  "{testimonials[currentIndex].quote}"
+                </blockquote>
+
+                {/* Author info */}
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <div>
+                    <p className="text-lg font-medium tracking-tight mb-1 text-foreground">
+                      {testimonials[currentIndex].name}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-0.5">
+                      {testimonials[currentIndex].role}
+                    </p>
+                    <p className="text-sm text-muted-foreground/70">
+                      {testimonials[currentIndex].location}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={prevTestimonial}
+                      className="w-11 h-11 bg-white hover:bg-accent hover:text-white rounded-[1rem] flex items-center justify-center shadow-lg shadow-black/5 hover:shadow-xl transition-all duration-300 active:scale-95 border border-border/30"
+                      aria-label="Previous testimonial"
+                    >
+                      <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+                    </button>
+                    <button
+                      onClick={nextTestimonial}
+                      className="w-11 h-11 bg-white hover:bg-accent hover:text-white rounded-[1rem] flex items-center justify-center shadow-lg shadow-black/5 hover:shadow-xl transition-all duration-300 active:scale-95 border border-border/30"
+                      aria-label="Next testimonial"
+                    >
+                      <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Dots indicator */}
+                <div className="flex gap-2.5 mt-8">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`h-2 rounded-full transition-all duration-500 ${
+                        index === currentIndex
+                          ? "w-10 bg-accent shadow-md shadow-accent/30"
+                          : "w-2 bg-muted hover:bg-muted-foreground/30"
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
+          </Reveal>
+        </div>
 
-            {/* Next button */}
-            <button
-              onClick={nextTestimonial}
-              className="w-12 h-12 bg-white hover:bg-accent hover:text-white rounded-[1rem] flex items-center justify-center shadow-lg shadow-black/5 hover:shadow-xl transition-all duration-300 active:scale-95 border border-border/30"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
-            </button>
-          </div>
-        </Reveal>
-
-        {/* Learn More Link */}
         <Reveal delay={140}>
-          <div className="text-center">
+          <div className="text-center mt-10">
             <a
               href="#contact"
               className="inline-flex items-center text-accent hover:text-accent/80 text-sm font-medium transition-colors gap-1"
