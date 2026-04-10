@@ -12,26 +12,29 @@ import { ContactFormSection } from "./components/ContactFormSection";
 import { Footer } from "./components/Footer";
 import { FloatingCTA } from "./components/FloatingCTA";
 import { ScrollToTopButton } from "./components/ScrollToTopButton";
+import { LanguageProvider } from "./LanguageContext";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
-      <EmergencyBanner />
-      <Header />
-      <main>
-        <HeroSection />
-        <TrustSection />
-        <PremiumServicesCards />
-        <WhyUsSection />
-        <ProcessTimeline />
-        <ReassuranceSection />
-        <PremiumTestimonials />
-        <FAQSection />
-        <ContactFormSection />
-        <Footer />
-      </main>
-      <FloatingCTA />
-      <ScrollToTopButton />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background">
+        <EmergencyBanner />
+        <Header />
+        <main>
+          <HeroSection />
+          <TrustSection />
+          <PremiumServicesCards />
+          <WhyUsSection />
+          <ProcessTimeline />
+          <ReassuranceSection />
+          <PremiumTestimonials />
+          <FAQSection />
+          <ContactFormSection />
+          <Footer />
+        </main>
+        <FloatingCTA />
+        <ScrollToTopButton />
+      </div>
+    </LanguageProvider>
   );
 }

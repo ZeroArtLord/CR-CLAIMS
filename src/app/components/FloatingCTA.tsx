@@ -1,12 +1,13 @@
 import { Phone } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLanguage } from "../LanguageContext";
 
 export function FloatingCTA() {
+  const { content } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button after scrolling 300px
       setIsVisible(window.scrollY > 300);
     };
 
@@ -25,7 +26,7 @@ export function FloatingCTA() {
               aria-label="Call now +1 (407) 358-4589"
             >
               <Phone className="w-5 h-5" />
-              <span className="font-medium">Call Now: +1 (407) 358-4589</span>
+              <span className="font-medium">{content.floating.callNow}</span>
             </a>
           </div>
         </div>

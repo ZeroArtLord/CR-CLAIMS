@@ -1,40 +1,22 @@
 import { TrendingUp, Users, Clock, Award } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { useLanguage } from "../LanguageContext";
 
-const stats = [
-  {
-    icon: Clock,
-    value: "24/7",
-    label: "Emergency Response",
-  },
-  {
-    icon: TrendingUp,
-    value: "Maximized",
-    label: "Insurance Settlement",
-  },
-  {
-    icon: Users,
-    value: "No Fees",
-    label: "Unless You Get Paid",
-  },
-  {
-    icon: Award,
-    value: "Licensed",
-    label: "Public Adjusters (Florida)",
-  },
-];
+const iconMap = [Clock, TrendingUp, Users, Award];
 
 export function TrustSection() {
+  const { content } = useLanguage();
+
   return (
     <section className="py-16 lg:py-20 px-6 lg:px-12 xl:px-16 bg-white sm:bg-gradient-to-b sm:from-white sm:to-background">
       <div className="max-w-[1400px] mx-auto">
         <div className="bg-white sm:bg-gradient-to-br sm:from-accent/5 sm:via-white sm:to-accent/5 rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-16 border border-border/20 sm:border-accent/10 shadow-xl shadow-black/5 relative overflow-hidden">
           {/* Soft lighting overlay */}
           <div className="absolute inset-0 sm:bg-gradient-to-br sm:from-white/60 sm:via-transparent sm:to-transparent pointer-events-none"></div>
-          
+
           <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
+            {content.trust.stats.map((stat, index) => {
+              const Icon = iconMap[index] ?? TrendingUp;
               return (
                 <Reveal key={index} delay={index * 90}>
                   <div className="text-center group">

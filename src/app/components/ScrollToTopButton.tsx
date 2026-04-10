@@ -1,10 +1,11 @@
 import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLanguage } from "../LanguageContext";
 
 export function ScrollToTopButton() {
+  const { content } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostrar el botón cuando el usuario hace scroll hacia abajo
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -19,7 +20,6 @@ export function ScrollToTopButton() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Función para hacer scroll suave hacia arriba
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -37,12 +37,10 @@ export function ScrollToTopButton() {
         >
           <ArrowUp className="w-6 h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={2} />
 
-          {/* Efecto de brillo */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-          {/* Tooltip en hover */}
           <div className="absolute bottom-full right-0 mb-3 px-3 py-2 bg-foreground/90 text-background text-xs font-light rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-            Back to top
+            {content.scrollTop}
             <div className="absolute top-full right-4 -mt-1 w-2 h-2 bg-foreground/90 rotate-45"></div>
           </div>
         </button>
