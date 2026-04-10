@@ -37,14 +37,14 @@ export function TrustSection() {
               const Icon = stat.icon;
               return (
                 <Reveal key={index} delay={index * 90}>
-                  <div className="text-center">
-                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-accent/10 rounded-[1.25rem] lg:rounded-[1.5rem] flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-sm">
-                      <Icon className="w-7 h-7 lg:w-8 lg:h-8 text-accent" strokeWidth={1.5} />
+                  <div className="text-center group">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-accent/10 rounded-[1.25rem] lg:rounded-[1.5rem] flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-sm transition-all duration-300 group-hover:bg-accent/20 group-hover:scale-105">
+                      <Icon className="w-7 h-7 lg:w-8 lg:h-8 text-accent transition-all duration-300 group-hover:scale-110" strokeWidth={1.5} />
                     </div>
-                    <p className="text-2xl lg:text-3xl xl:text-4xl font-medium text-foreground mb-1 lg:mb-2 tracking-tight">
+                    <p className="text-2xl lg:text-3xl xl:text-4xl font-medium text-foreground mb-1 lg:mb-2 tracking-tight transition-all duration-300 group-hover:text-accent">
                       {stat.value}
                     </p>
-                    <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed transition-all duration-300 group-hover:text-foreground/80">
                       {stat.label}
                     </p>
                   </div>

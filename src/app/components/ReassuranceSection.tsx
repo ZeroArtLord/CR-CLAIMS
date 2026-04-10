@@ -49,12 +49,12 @@ export function ReassuranceSection() {
               {processItems.map((item, index) => (
                 <Reveal key={index} delay={index * 80}>
                   <div
-                    className="flex items-center gap-4 bg-gradient-to-r from-accent/5 to-transparent rounded-[1.25rem] lg:rounded-[1.5rem] p-4 lg:p-5 border border-accent/10"
+                    className="flex items-center gap-4 bg-gradient-to-r from-accent/5 to-transparent rounded-[1.25rem] lg:rounded-[1.5rem] p-4 lg:p-5 border border-accent/10 transition-all duration-300 hover:from-accent/10 hover:border-accent/20 hover:shadow-md group"
                   >
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-accent rounded-[0.875rem] lg:rounded-[1rem] flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-5 h-5 lg:w-6 lg:h-6 text-white" strokeWidth={2.5} />
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-accent rounded-[0.875rem] lg:rounded-[1rem] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                      <CheckCircle2 className="w-5 h-5 lg:w-6 lg:h-6 text-white transition-all duration-300 group-hover:scale-110" strokeWidth={2.5} />
                     </div>
-                    <p className="text-base lg:text-lg text-foreground tracking-tight">{item}</p>
+                    <p className="text-base lg:text-lg text-foreground tracking-tight transition-all duration-300 group-hover:text-accent">{item}</p>
                   </div>
                 </Reveal>
               ))}

@@ -7,8 +7,8 @@ const services = [
     title: "Water Damage",
     description:
       "Water damage doesn't wait -- and neither should you. From burst pipes and appliance leaks to roof failures, water can cause serious damage fast and lead to mold or structural issues if not addressed correctly. Whether your claim is new or already in progress, CR Claims Resolution specializes in water damage insurance claims across Florida, ensuring nothing is overlooked and your compensation reflects the true cost of repairs.",
-    gradient: "from-blue-50/80 to-cyan-50/40",
-    iconBg: "bg-gradient-to-br from-blue-100 to-blue-50",
+    gradient: "sm:from-blue-50/70 sm:to-blue-50/20",
+    iconBg: "bg-gradient-to-br from-blue-100/90 to-blue-50/80",
     iconColor: "text-blue-600",
   },
   {
@@ -16,8 +16,8 @@ const services = [
     title: "Storm & Hurricane Damage",
     description:
       "Florida storms can be relentless. Hurricanes, tropical storms, high winds, and heavy rain often cause roof damage, interior leaks, and hidden structural problems that insurance companies may downplay. Our certified public adjusters have extensive experience handling storm and hurricane insurance claims in Florida, making sure every detail is documented and properly claimed. Don't settle for less after the storm passes.",
-    gradient: "from-slate-50/80 to-gray-50/40",
-    iconBg: "bg-gradient-to-br from-slate-100 to-slate-50",
+    gradient: "sm:from-slate-50/70 sm:to-slate-50/20",
+    iconBg: "bg-gradient-to-br from-slate-100/90 to-slate-50/80",
     iconColor: "text-slate-600",
   },
   {
@@ -25,8 +25,8 @@ const services = [
     title: "Fire Damage",
     description:
       "A fire can turn your life upside down in a matter of minutes. Beyond the visible destruction, fire damage often includes smoke, soot, and structural issues that insurance companies tend to undervalue. At CR Claims Resolution, our licensed public adjusters handle your fire insurance claim from start to finish, protecting your rights and fighting to maximize your settlement. You focus on rebuilding -- we handle the claim.",
-    gradient: "from-orange-50/80 to-amber-50/40",
-    iconBg: "bg-gradient-to-br from-orange-100 to-orange-50",
+    gradient: "sm:from-orange-50/70 sm:to-orange-50/20",
+    iconBg: "bg-gradient-to-br from-orange-100/90 to-orange-50/80",
     iconColor: "text-orange-600",
   },
   {
@@ -34,8 +34,8 @@ const services = [
     title: "Flood Damage",
     description:
       "Flooding is one of the most destructive and stressful losses a property owner can face in Florida. Whether caused by heavy rain, storm surge, or rising water levels, flood damage can impact foundations, electrical systems, and personal property. CR Claims Resolution helps you navigate complex flood insurance claims, working diligently to secure the compensation you need to recover and rebuild with confidence.",
-    gradient: "from-cyan-50/80 to-teal-50/40",
-    iconBg: "bg-gradient-to-br from-cyan-100 to-cyan-50",
+    gradient: "sm:from-cyan-50/70 sm:to-cyan-50/20",
+    iconBg: "bg-gradient-to-br from-cyan-100/90 to-cyan-50/80",
     iconColor: "text-cyan-600",
   },
 ];
@@ -61,7 +61,7 @@ export function PremiumServicesCards() {
             return (
               <Reveal key={index} delay={index * 90}>
                 <div
-                  className={`relative bg-gradient-to-br ${service.gradient} backdrop-blur-sm rounded-[2.25rem] lg:rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-xl shadow-black/8 hover:shadow-2xl hover:shadow-black/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer border border-white/60 flex flex-col`}
+                  className={`relative bg-white sm:bg-gradient-to-br ${service.gradient} backdrop-blur-sm rounded-[2.25rem] lg:rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-xl shadow-black/8 hover:shadow-2xl hover:shadow-black/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer border border-border/20 sm:border-white/60 flex flex-col`}
                 >
                   {/* Soft lighting effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent rounded-[2.25rem] lg:rounded-[2.5rem] pointer-events-none"></div>
