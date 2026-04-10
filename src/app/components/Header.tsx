@@ -1,18 +1,23 @@
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import logoHorizontal from "../../assets/logo-horizontal.png";
 import logoVertical from "../../assets/logo-vertical.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
+  { label: "Claim Types", href: "#services" },
+  { label: "Our Process", href: "#process" },
   { label: "About", href: "#about" },
   { label: "FAQ", href: "#faq" },
-  { label: "Blog", href: "#blog" },
+  { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ];
 
 export function Header() {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const closeMobileMenu = () => setIsMobileOpen(false);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-border/20 shadow-soft">
       <div className="px-4 sm:px-6 lg:px-8 py-4 lg:py-5 flex items-center justify-between max-w-7xl mx-auto">
@@ -58,18 +63,53 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:block">
-          <button className="bg-accent hover:bg-accent/90 text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-[1rem] transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] active:scale-[0.98] text-sm xl:text-base">
-            Schedule Free Inspection
-          </button>
+          <a
+            href="#contact"
+            className="bg-accent hover:bg-accent/90 text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-[1rem] transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] active:scale-[0.98] text-sm xl:text-base inline-flex items-center justify-center"
+          >
+            Start Your Free Inspection Now
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="lg:hidden w-11 h-11 rounded-[1rem] bg-white flex items-center justify-center hover:bg-accent hover:text-white transition-all shadow-md shadow-black/5 border border-border/30"
-          aria-label="Menu"
+          aria-label="Toggle menu"
+          aria-expanded={isMobileOpen}
+          aria-controls="mobile-nav"
+          onClick={() => setIsMobileOpen((prev) => !prev)}
         >
-          <Menu className="w-5 h-5" strokeWidth={2} />
+          {isMobileOpen ? <X className="w-5 h-5" strokeWidth={2} /> : <Menu className="w-5 h-5" strokeWidth={2} />}
         </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div
+        id="mobile-nav"
+        className={`lg:hidden transition-all duration-300 overflow-hidden ${isMobileOpen ? "max-h-[520px]" : "max-h-0"}`}
+      >
+        <div className="px-6 pb-6 pt-2 bg-white/95 backdrop-blur-lg border-t border-border/20 shadow-soft">
+          <nav className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={closeMobileMenu}
+                className="text-sm text-foreground/80 hover:text-foreground transition-colors tracking-tight"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="#contact"
+            onClick={closeMobileMenu}
+            className="mt-6 inline-flex w-full items-center justify-center bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-[1rem] transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30"
+          >
+            Start Your Free Inspection Now
+          </a>
+        </div>
       </div>
     </header>
   );

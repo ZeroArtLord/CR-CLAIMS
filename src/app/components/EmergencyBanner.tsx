@@ -1,4 +1,4 @@
-import { AlertCircle } from "lucide-react";
+﻿import { AlertCircle } from "lucide-react";
 
 export function EmergencyBanner() {
   return (
@@ -6,7 +6,7 @@ export function EmergencyBanner() {
       <div className="max-w-[1600px] mx-auto flex items-center justify-center gap-3 text-sm lg:text-base">
         <AlertCircle className="w-4 h-4 flex-shrink-0 animate-pulse" />
         <p className="leading-tight">
-          <span className="font-medium">Emergency Response Available</span> · 24/7 Service
+          <span className="font-medium">Emergency Response Available</span> - 24/7 Service
         </p>
       </div>
     </div>

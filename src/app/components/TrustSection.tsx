@@ -2,24 +2,24 @@ import { TrendingUp, Users, Clock, Award } from "lucide-react";
 
 const stats = [
   {
+    icon: Clock,
+    value: "24/7",
+    label: "Emergency Response",
+  },
+  {
     icon: TrendingUp,
-    value: "$50M+",
-    label: "Recovered for Clients",
+    value: "Maximized",
+    label: "Insurance Settlement",
   },
   {
     icon: Users,
-    value: "5,000+",
-    label: "Claims Settled",
-  },
-  {
-    icon: Clock,
-    value: "24/7",
-    label: "Emergency Service",
+    value: "No Fees",
+    label: "Unless You Get Paid",
   },
   {
     icon: Award,
-    value: "20+ Years",
-    label: "Florida Experience",
+    value: "Licensed",
+    label: "Public Adjusters (Florida)",
   },
 ];
 

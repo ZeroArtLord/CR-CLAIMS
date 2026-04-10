@@ -1,26 +1,37 @@
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+﻿import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const testimonials = [
   {
-    name: "Sarah Martinez",
-    location: "Miami, FL",
-    role: "Homeowner",
-    quote: "CR Claims got us 3x more than the initial offer. They handled everything professionally and kept us informed every step of the way. Truly exceptional service.",
-    rating: 5,
-  },
-  {
-    name: "James Peterson",
-    location: "Tampa, FL",
-    role: "Property Owner",
-    quote: "After Hurricane Ian, we were overwhelmed. Their team took charge and secured a settlement that covered all our repairs. Peace of mind when we needed it most.",
-    rating: 5,
-  },
-  {
-    name: "Lisa Chen",
+    name: "Maria L.",
     location: "Orlando, FL",
-    role: "Business Owner",
-    quote: "No upfront fees and exceptional service. They truly work for you, not the insurance company. The difference in our settlement was life-changing.",
+    role: "Homeowner",
+    quote:
+      "After a water loss, I felt completely overwhelmed dealing with the insurance company. CR Claims Resolution took over the process, explained everything clearly, and made sure no damage was missed. The final settlement was much higher than the initial offer.",
+    rating: 5,
+  },
+  {
+    name: "James R.",
+    location: "Kissimmee, FL",
+    role: "Homeowner",
+    quote:
+      "Our storm damage claim was moving slowly and we weren't getting answers. Once CR Claims Resolution got involved, communication improved immediately. They handled the documentation and negotiations professionally and kept us informed every step of the way.",
+    rating: 5,
+  },
+  {
+    name: "Peter P.",
+    location: "Winter Park, FL",
+    role: "Homeowner",
+    quote:
+      "CR Claims Resolution truly works for the homeowner. They found damages we didn't even know to look for and helped us understand our policy. The process was smooth and stress-free, with no upfront costs.",
+    rating: 5,
+  },
+  {
+    name: "Carla M.",
+    location: "Davenport, FL",
+    role: "Homeowner",
+    quote:
+      "After a fire loss, the insurance process was confusing and frustrating. CR Claims Resolution guided us from inspection to settlement and made sure the claim was handled correctly. Their experience and attention to detail made a real difference.",
     rating: 5,
   },
 ];
@@ -37,22 +48,18 @@ export function PremiumTestimonials() {
   };
 
   return (
-    <section className="py-20 px-6 bg-background">
+    <section id="reviews" className="scroll-mt-24 py-20 px-6 bg-background">
       <div className="max-w-md mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-[2.25rem] mb-4 tracking-tight leading-tight text-foreground">
-            Client Testimonials
-          </h2>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Stories of success and recovery
-          </p>
+          <h2 className="text-[2.25rem] mb-4 tracking-tight leading-tight text-foreground">Customer Reviews</h2>
+          <p className="text-base text-muted-foreground leading-relaxed">They have already used our services</p>
         </div>
 
         {/* Testimonial Card - Distinct with gradient background */}
         <div className="relative bg-gradient-to-br from-accent/8 via-white to-white rounded-[2.5rem] p-10 shadow-xl shadow-black/8 mb-10 border border-accent/10">
           {/* Soft lighting overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-[2.5rem] pointer-events-none"></div>
-          
+
           <div className="relative text-center">
             {/* Stars */}
             <div className="flex gap-1.5 mb-8 justify-center">
@@ -70,15 +77,9 @@ export function PremiumTestimonials() {
 
             {/* Author info */}
             <div>
-              <p className="text-lg font-medium tracking-tight mb-1 text-foreground">
-                {testimonials[currentIndex].name}
-              </p>
-              <p className="text-sm text-muted-foreground mb-0.5">
-                {testimonials[currentIndex].role}
-              </p>
-              <p className="text-sm text-muted-foreground/70">
-                {testimonials[currentIndex].location}
-              </p>
+              <p className="text-lg font-medium tracking-tight mb-1 text-foreground">{testimonials[currentIndex].name}</p>
+              <p className="text-sm text-muted-foreground mb-0.5">{testimonials[currentIndex].role}</p>
+              <p className="text-sm text-muted-foreground/70">{testimonials[currentIndex].location}</p>
             </div>
           </div>
         </div>
@@ -101,8 +102,8 @@ export function PremiumTestimonials() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all duration-500 ${
-                  index === currentIndex 
-                    ? "w-10 bg-accent shadow-md shadow-accent/30" 
+                  index === currentIndex
+                    ? "w-10 bg-accent shadow-md shadow-accent/30"
                     : "w-2 bg-muted hover:bg-muted-foreground/30"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -122,12 +123,12 @@ export function PremiumTestimonials() {
 
         {/* Learn More Link */}
         <div className="text-center">
-          <a 
-            href="#" 
+          <a
+            href="#contact"
             className="inline-flex items-center text-accent hover:text-accent/80 text-sm font-medium transition-colors gap-1"
           >
             Read More Success Stories
-            <span className="text-lg">→</span>
+            <span className="text-lg">-&gt;</span>
           </a>
         </div>
       </div>

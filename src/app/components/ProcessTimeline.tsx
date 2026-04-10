@@ -1,40 +1,49 @@
-import { Search, FileText, ClipboardCheck, Send, Handshake } from "lucide-react";
+﻿import { Search, FileText, ClipboardCheck, Send, Handshake, CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
     icon: Search,
-    title: "Free Inspection",
-    description: "Complete property damage assessment at no cost to you",
+    title: "Free Property Inspection",
+    description: "We assess visible and hidden damages",
   },
   {
     icon: FileText,
-    title: "Policy Review",
-    description: "Expert analysis of your coverage and claim potential",
+    title: "Detailed Policy Analysis",
+    description: "We review coverage and requirements",
   },
   {
     icon: ClipboardCheck,
-    title: "Documentation",
-    description: "Thorough evidence gathering and damage cataloging",
+    title: "Comprehensive Documentation",
+    description: "Photos, measurements, estimates",
   },
   {
     icon: Send,
-    title: "Submission",
-    description: "Professional claim filing with comprehensive support",
+    title: "Claim Preparation & Submission",
+    description: "We submit a complete claim file",
   },
   {
     icon: Handshake,
-    title: "Negotiation",
-    description: "Aggressive advocacy for maximum settlement value",
+    title: "Direct Negotiation",
+    description: "We negotiate with the insurer",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Resolution & Payment",
+    description: "We work to secure a fair settlement and ensure payment",
   },
 ];
 
 export function ProcessTimeline() {
   return (
-    <section className="py-20 lg:py-24 px-6 lg:px-12 xl:px-16 bg-white">
+    <section id="process" className="scroll-mt-24 py-20 lg:py-24 px-6 lg:px-12 xl:px-16 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-14 lg:mb-20">
-          <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-4 lg:mb-6 tracking-tight text-foreground">Our Process</h2>
-          <p className="text-muted-foreground lg:text-lg">Simple steps to your settlement</p>
+          <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-4 lg:mb-6 tracking-tight text-foreground">
+            Our Claim Process
+          </h2>
+          <p className="text-muted-foreground lg:text-lg max-w-3xl mx-auto">
+            Clear steps that reduce stress and keep your claim organized from day one.
+          </p>
         </div>
 
         {/* Desktop: Horizontal Timeline */}
@@ -43,7 +52,7 @@ export function ProcessTimeline() {
             {/* Horizontal line */}
             <div className="absolute top-[1.875rem] left-0 right-0 h-[2px] bg-gradient-to-r from-accent via-accent/50 to-accent/20"></div>
 
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-6 gap-4">
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
