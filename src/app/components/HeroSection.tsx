@@ -13,7 +13,11 @@ export function HeroSection() {
               <img 
                 src={logoVertical} 
                 alt="CR Claims Resolution Shield" 
-                className="h-14 lg:h-16 w-auto opacity-80"
+                className="h-14 lg:h-16 w-auto opacity-90"
+                style={{ 
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2)) drop-shadow(0 1px 2px rgba(0,0,0,0.4))',
+                  WebkitFilter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2)) drop-shadow(0 1px 2px rgba(0,0,0,0.4))'
+                }}
               />
             </div>
 

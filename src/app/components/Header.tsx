@@ -22,7 +22,10 @@ export function Header() {
               src={logoVertical} 
               alt="CR Claims Resolution" 
               className="h-10 w-auto sm:h-12"
-              style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.05))' }}
+              style={{ 
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))',
+                WebkitFilter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+              }}
             />
           </div>
           
@@ -31,7 +34,10 @@ export function Header() {
               src={logoHorizontal} 
               alt="CR Claims Resolution" 
               className="h-12 w-auto lg:h-14"
-              style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.05))' }}
+              style={{ 
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))',
+                WebkitFilter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+              }}
             />
           </div>
         </div>

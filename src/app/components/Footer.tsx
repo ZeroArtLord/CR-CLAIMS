@@ -24,7 +24,10 @@ export function Footer() {
               src={logoVertical} 
               alt="CR Claims Resolution" 
               className="h-20 w-auto mb-6 mx-auto lg:mx-0"
-              style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}
+              style={{ 
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))',
+                WebkitFilter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+              }}
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Florida's trusted public adjusters fighting for homeowners since 2004.
