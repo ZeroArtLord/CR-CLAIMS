@@ -7,6 +7,7 @@ import { WhyUsSection } from "./components/WhyUsSection";
 import { ProcessTimeline } from "./components/ProcessTimeline";
 import { ReassuranceSection } from "./components/ReassuranceSection";
 import { PremiumTestimonials } from "./components/PremiumTestimonials";
+import { FAQSection } from "./components/FAQSection";
 import { ContactFormSection } from "./components/ContactFormSection";
 import { Footer } from "./components/Footer";
 import { FloatingCTA } from "./components/FloatingCTA";
@@ -24,6 +25,7 @@ export default function App() {
         <ProcessTimeline />
         <ReassuranceSection />
         <PremiumTestimonials />
+        <FAQSection />
         <ContactFormSection />
         <Footer />
       </main>
