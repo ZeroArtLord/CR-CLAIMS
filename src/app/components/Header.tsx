@@ -13,25 +13,27 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40 shadow-sm shadow-black/5">
-      <div className="px-6 lg:px-12 xl:px-16 py-5 lg:py-6 flex items-center justify-between max-w-[1600px] mx-auto">
-        {/* Logo - Vertical on mobile, Horizontal on desktop */}
-        <div className="flex items-center lg:hidden">
-          <img 
-            src={logoVertical} 
-            alt="CR Claims Resolution" 
-            className="h-12 w-auto"
-            style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}
-          />
-        </div>
-        
-        <div className="hidden lg:flex items-center">
-          <img 
-            src={logoHorizontal} 
-            alt="CR Claims Resolution" 
-            className="h-14 w-auto"
-            style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}
-          />
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-border/20 shadow-soft">
+      <div className="px-4 sm:px-6 lg:px-8 py-4 lg:py-5 flex items-center justify-between max-w-7xl mx-auto">
+        {/* Logo */}
+        <div className="flex items-center">
+          <div className="lg:hidden">
+            <img 
+              src={logoVertical} 
+              alt="CR Claims Resolution" 
+              className="h-10 w-auto sm:h-12"
+              style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.05))' }}
+            />
+          </div>
+          
+          <div className="hidden lg:block">
+            <img 
+              src={logoHorizontal} 
+              alt="CR Claims Resolution" 
+              className="h-12 w-auto lg:h-14"
+              style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.05))' }}
+            />
+          </div>
         </div>
 
         {/* Desktop Navigation */}

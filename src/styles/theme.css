@@ -179,4 +179,37 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+
+  /* Premium shadow utilities */
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 8px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .shadow-gentle {
+    box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-elegant {
+    box-shadow: 0 12px 40px -6px rgba(0, 0, 0, 0.1), 0 6px 16px -3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Premium gradient borders */
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, var(--accent) 0%, rgba(43, 159, 232, 0.3) 100%) border-box;
+    border: 1px solid transparent;
+  }
 }
