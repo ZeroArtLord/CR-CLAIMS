@@ -66,11 +66,12 @@ export function HeroSection() {
           <div className="lg:order-2 mt-12 lg:mt-0">
             <Reveal delay={120}>
               <div className="relative w-full h-[360px] lg:h-[500px] xl:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/10">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1647845500173-bd9aed7d8fb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwYW5vcmFtaWMlMjBsaXZpbmclMjByb29tJTIwcmVzdG9yZWQlMjB3aWRlfGVufDF8fHx8MTc3NTY3OTQ1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Beautifully restored luxury home"
-                  className="w-full h-full object-cover"
-                />
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1647845500173-bd9aed7d8fb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwYW5vcmFtaWMlMjBsaXZpbmclMjByb29tJTIwcmVzdG9yZWQlMjB3aWRlfGVufDF8fHx8MTc3NTY3OTQ1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                alt="Beautifully restored luxury home"
+                className="w-full h-full object-cover"
+                priority={true}
+              />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent"></div>
               </div>
             </Reveal>

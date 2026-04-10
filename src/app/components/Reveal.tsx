@@ -19,7 +19,10 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (prefersReducedMotion) {
+    // En móvil, simplificamos las animaciones para mejor rendimiento
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    
+    if (prefersReducedMotion || isMobile) {
       setIsVisible(true);
       return;
     }
@@ -31,7 +34,10 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
           observer.disconnect();
         }
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
+      { 
+        rootMargin: "0px 0px -10% 0px", 
+        threshold: 0.15 
+      }
     );
 
     observer.observe(node);

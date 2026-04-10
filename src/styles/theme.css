@@ -220,11 +220,11 @@
     border: 1px solid transparent;
   }
 
-  /* Scroll reveal */
+  /* Scroll reveal - Optimizado para móvil */
   .reveal {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
     will-change: opacity, transform;
   }
 
@@ -234,7 +234,30 @@
   }
 
   .reveal-fast {
-    transition-duration: 0.32s;
+    transition-duration: 0.25s;
+  }
+
+  /* Optimizaciones para móvil */
+  @media (max-width: 768px) {
+    .reveal {
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    
+    /* Reducir efectos de sombra en móvil para mejor rendimiento */
+    .shadow-lg, .shadow-xl, .shadow-2xl {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Simplificar gradientes en móvil */
+    .bg-gradient-to-r, .bg-gradient-to-b, .bg-gradient-to-br {
+      background-image: none;
+      background-color: var(--accent);
+    }
+    
+    .bg-gradient-to-r.from-accent.to-accent\/90 {
+      background-color: var(--accent);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -242,6 +265,19 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+  }
+  
+  /* Optimización de rendimiento para animaciones */
+  @media (prefers-reduced-data: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    
+    .bg-gradient-to-r, .bg-gradient-to-b, .bg-gradient-to-br {
+      background-image: none;
     }
   }
 }
