@@ -1,4 +1,4 @@
-import { User, Mail, Phone, MessageSquare, Send } from "lucide-react";
+import { User, Mail, Phone, MessageSquare, Send, Home, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 
@@ -8,6 +8,8 @@ export function ContactFormSection() {
     lastName: "",
     phone: "",
     email: "",
+    propertyType: "",
+    damageType: "",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -17,7 +19,7 @@ export function ContactFormSection() {
     void submitForm();
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -49,7 +51,7 @@ export function ContactFormSection() {
       } else {
         const subject = encodeURIComponent("Free Inspection Request");
         const body = encodeURIComponent(
-          `Name: ${formData.firstName} ${formData.lastName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+          `Name: ${formData.firstName} ${formData.lastName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProperty Type: ${formData.propertyType}\nDamage Type: ${formData.damageType}\n\nMessage:\n${formData.message}`
         );
         window.location.href = `mailto:info@crclaimsflorida.com?subject=${subject}&body=${body}`;
       }
@@ -60,6 +62,8 @@ export function ContactFormSection() {
         lastName: "",
         phone: "",
         email: "",
+        propertyType: "",
+        damageType: "",
         message: "",
       });
     } catch (error) {
@@ -236,6 +240,65 @@ export function ContactFormSection() {
                       placeholder="Email Address"
                       required
                     />
+                  </div>
+                </div>
+
+                {/* Property Type */}
+                <div className="space-y-3">
+                  <label className="block text-sm font-light text-foreground">Property Type</label>
+                  <div className="relative">
+                    <Home className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                    <select
+                      name="propertyType"
+                      value={formData.propertyType}
+                      onChange={handleChange}
+                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none cursor-pointer"
+                      required
+                    >
+                      <option value="">Select property type / Tipo de propiedad</option>
+                      <option value="single-family">Single Family Home</option>
+                      <option value="condo">Condominium / Condominio</option>
+                      <option value="townhouse">Townhouse</option>
+                      <option value="apartment">Apartment / Apartamento</option>
+                      <option value="commercial">Commercial Property</option>
+                      <option value="multi-family">Multi-Family Building</option>
+                      <option value="other">Other / Otro</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg className="w-4 h-4 text-muted-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Damage Type */}
+                <div className="space-y-3">
+                  <label className="block text-sm font-light text-foreground">Damage Type</label>
+                  <div className="relative">
+                    <AlertTriangle className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                    <select
+                      name="damageType"
+                      value={formData.damageType}
+                      onChange={handleChange}
+                      className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none cursor-pointer"
+                      required
+                    >
+                      <option value="">Select damage type / Tipo de daño</option>
+                      <option value="water">Water Damage / Daño por agua</option>
+                      <option value="storm">Storm & Hurricane Damage / Daño por tormenta o huracán</option>
+                      <option value="fire">Fire Damage / Daño por incendio</option>
+                      <option value="flood">Flood Damage / Daño por inundación</option>
+                      <option value="mold">Mold Damage / Daño por moho</option>
+                      <option value="wind">Wind Damage / Daño por viento</option>
+                      <option value="roof">Roof Damage / Daño en techo</option>
+                      <option value="other">Other / Otro</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg className="w-4 h-4 text-muted-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
 
