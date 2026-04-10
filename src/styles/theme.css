@@ -226,6 +226,10 @@
     transform: translateY(0);
   }
 
+  .reveal-fast {
+    transition-duration: 0.32s;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;

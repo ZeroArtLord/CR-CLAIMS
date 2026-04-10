@@ -49,8 +49,11 @@ export function PremiumTestimonials() {
   };
 
   return (
-    <section id="reviews" className="scroll-mt-24 py-20 px-6 bg-background">
-      <div className="max-w-5xl mx-auto">
+    <section id="reviews" className="scroll-mt-24 py-20 px-6 bg-background relative overflow-hidden">
+      <div className="absolute -top-24 right-0 h-80 w-80 rounded-full bg-accent/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div className="absolute -bottom-32 left-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+      <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-12">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium text-foreground shadow-sm border border-border/30 mb-5">
@@ -69,7 +72,7 @@ export function PremiumTestimonials() {
         <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-8 lg:gap-12 items-stretch">
           {/* Summary */}
           <Reveal>
-            <div className="bg-white rounded-[2rem] p-8 lg:p-10 shadow-xl shadow-black/6 border border-border/30 h-full flex flex-col justify-between">
+            <div className="bg-white/90 backdrop-blur-sm rounded-[2rem] p-8 lg:p-10 shadow-elegant border border-accent/10 h-full flex flex-col justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-2">Average Rating</p>
                 <div className="flex items-center gap-3">
@@ -114,7 +117,7 @@ export function PremiumTestimonials() {
 
           {/* Testimonial Card */}
           <Reveal delay={90}>
-            <div className="relative bg-gradient-to-br from-accent/8 via-white to-white rounded-[2.5rem] p-10 lg:p-12 shadow-xl shadow-black/8 border border-accent/10 h-full flex flex-col">
+            <div className="relative bg-gradient-to-br from-accent/8 via-white to-white rounded-[2.5rem] p-10 lg:p-12 shadow-elegant border border-accent/10 h-full flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-[2.5rem] pointer-events-none"></div>
 
               <div className="relative">

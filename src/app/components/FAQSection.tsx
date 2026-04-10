@@ -110,7 +110,7 @@ export function FAQSection() {
             const isOpen = openItems.includes(faq.id);
 
             return (
-              <Reveal key={faq.id} delay={index * 40}>
+              <Reveal key={faq.id} delay={index * 40} className="reveal-fast">
                 <div className="bg-white rounded-2xl border border-border/30 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-border/50">
                   <button
                     onClick={() => toggleItem(faq.id)}
@@ -144,7 +144,7 @@ export function FAQSection() {
 
         {/* CTA Section */}
         <div className="mt-12 lg:mt-16 text-center">
-          <Reveal delay={120}>
+          <Reveal delay={120} className="reveal-fast">
             <div className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl p-8 lg:p-10 border border-accent/10">
               <h3 className="text-xl lg:text-2xl font-medium text-foreground mb-4">Still have questions?</h3>
               <p className="text-muted-foreground mb-6 lg:mb-8 max-w-xl mx-auto">
