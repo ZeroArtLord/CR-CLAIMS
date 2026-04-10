@@ -6,7 +6,7 @@ export function WhyUsSection() {
       <div className="max-w-[1200px] mx-auto">
         <Reveal>
           <div className="bg-white rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-14 shadow-xl shadow-black/6 border border-border/30">
-            <h2 className="text-[2rem] lg:text-[2.75rem] xl:text-[3.25rem] mb-4 lg:mb-6 tracking-tight text-foreground">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl mb-4 lg:mb-6 tracking-tight text-foreground font-light">
               Ready to Maximize Your Insurance Claim Settlement?
             </h2>
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed mb-6">

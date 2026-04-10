@@ -46,7 +46,7 @@ export function PremiumServicesCards() {
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <Reveal>
-            <h2 className="text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] mb-5 lg:mb-6 tracking-tight leading-tight text-foreground">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl mb-5 lg:mb-6 tracking-tight leading-tight text-foreground font-light">
               Claims We Handle
             </h2>
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -74,7 +74,7 @@ export function PremiumServicesCards() {
 
                     {/* Title */}
                     <div className="mb-4 lg:mb-5">
-                      <h3 className="text-[1.6rem] sm:text-[1.85rem] lg:text-[2rem] mb-3 sm:mb-4 lg:mb-4 tracking-tight leading-tight text-foreground">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 lg:mb-4 tracking-tight leading-tight text-foreground font-medium">
                         {service.title}
                       </h3>
                     </div>

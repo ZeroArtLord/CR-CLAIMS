@@ -23,8 +23,11 @@
   --input: transparent;
   --input-background: #F5F5F4;
   --switch-background: #cbced4;
-  --font-weight-medium: 500;
+  --font-weight-light: 300;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
   --ring: #2B9FE8;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);

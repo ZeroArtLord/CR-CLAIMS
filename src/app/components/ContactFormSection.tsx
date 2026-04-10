@@ -250,7 +250,7 @@ export function ContactFormSection() {
                       onChange={handleChange}
                       rows={4}
                       className="w-full pl-12 pr-4 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all placeholder:text-muted-foreground/40 resize-none"
-                      placeholder="Briefly describe your damage / Describa su daño"
+                      placeholder="Briefly describe your damage / Describa su daÃ±o"
                       required
                     />
                   </div>
