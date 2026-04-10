@@ -1,5 +1,5 @@
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import logoHorizontal from "../../assets/logo-horizontal.png";
 import logoVertical from "../../assets/logo-vertical.png";
 import { useLanguage } from "../LanguageContext";
@@ -7,8 +7,67 @@ import { useLanguage } from "../LanguageContext";
 export function Header() {
   const { content, lang, setLang } = useLanguage();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const languageMenuRef = useRef<HTMLDivElement>(null);
+  const languageButtonRef = useRef<HTMLButtonElement>(null);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const closeMobileMenu = () => setIsMobileOpen(false);
+
+  // Cerrar menú de idioma si se hace clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageMenuRef.current &&
+        languageButtonRef.current &&
+        !languageMenuRef.current.contains(event.target as Node) &&
+        !languageButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Manejar timer para cerrar automáticamente
+  const startCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
+    closeTimerRef.current = setTimeout(() => {
+      setIsLanguageMenuOpen(false);
+    }, 2000); // Cerrar después de 2 segundos de inactividad
+  };
+
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const handleLanguageButtonMouseEnter = () => {
+    clearCloseTimer();
+    setIsLanguageMenuOpen(true);
+  };
+
+  const handleLanguageMenuMouseEnter = () => {
+    clearCloseTimer();
+  };
+
+  const handleLanguageMenuMouseLeave = () => {
+    startCloseTimer();
+  };
+
+  const handleLanguageSelect = (selectedLang: "en" | "es") => {
+    setLang(selectedLang);
+    setIsLanguageMenuOpen(false);
+    clearCloseTimer();
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-border/20 shadow-soft">
@@ -53,42 +112,54 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Language Toggle - Desktop */}
-        <div className="hidden lg:block">
-          <div className="relative group">
+        {/* Desktop Right Section: Language + CTA */}
+        <div className="hidden lg:flex items-center gap-4">
+          {/* Language Toggle - Premium Flags Only */}
+          <div className="relative">
             <button
-              className="flex items-center gap-2 rounded-full border border-border/30 bg-white/80 px-3 py-2 text-xs font-medium text-foreground/80 shadow-sm hover:text-foreground transition-colors"
+              ref={languageButtonRef}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-border/30 bg-white/80 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-white/90"
               aria-label="Language menu"
+              onMouseEnter={handleLanguageButtonMouseEnter}
+              onMouseLeave={startCloseTimer}
+              onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
             >
-              <span className="inline-flex items-center gap-2">
+              <span className="text-lg">
                 {lang === "en" ? "🇺🇸" : "🇪🇸"}
-                {lang === "en" ? "EN" : "ES"}
               </span>
-              <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />
             </button>
-            <div className="absolute right-0 mt-2 w-40 rounded-xl border border-border/40 bg-white/95 backdrop-blur-lg shadow-xl opacity-0 translate-y-1 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-              <button
-                onClick={() => setLang("en")}
-                className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-2 hover:bg-accent/10 ${
-                  lang === "en" ? "text-foreground" : "text-muted-foreground"
-                }`}
+            
+            {/* Language Menu */}
+            {isLanguageMenuOpen && (
+              <div
+                ref={languageMenuRef}
+                className="absolute right-0 mt-2 w-32 rounded-xl border border-border/40 bg-white/95 backdrop-blur-lg shadow-xl z-50"
+                onMouseEnter={handleLanguageMenuMouseEnter}
+                onMouseLeave={handleLanguageMenuMouseLeave}
               >
-                🇺🇸 English
-              </button>
-              <button
-                onClick={() => setLang("es")}
-                className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-2 hover:bg-accent/10 ${
-                  lang === "es" ? "text-foreground" : "text-muted-foreground"
-                }`}
-              >
-                🇪🇸 Español
-              </button>
-            </div>
+                <button
+                  onClick={() => handleLanguageSelect("en")}
+                  className={`w-full px-4 py-3 text-left text-sm flex items-center gap-3 hover:bg-accent/10 transition-colors rounded-t-xl ${
+                    lang === "en" ? "text-foreground bg-accent/5" : "text-muted-foreground"
+                  }`}
+                >
+                  <span className="text-base">🇺🇸</span>
+                  <span>English</span>
+                </button>
+                <button
+                  onClick={() => handleLanguageSelect("es")}
+                  className={`w-full px-4 py-3 text-left text-sm flex items-center gap-3 hover:bg-accent/10 transition-colors rounded-b-xl ${
+                    lang === "es" ? "text-foreground bg-accent/5" : "text-muted-foreground"
+                  }`}
+                >
+                  <span className="text-base">🇪🇸</span>
+                  <span>Español</span>
+                </button>
+              </div>
+            )}
           </div>
-        </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:block">
+          {/* Desktop CTA */}
           <a
             href="#contact"
             className="bg-accent hover:bg-accent/90 text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-[1rem] transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] active:scale-[0.98] text-sm xl:text-base inline-flex items-center justify-center"
@@ -129,23 +200,29 @@ export function Header() {
           </nav>
 
           <div className="mt-6 rounded-2xl border border-border/30 bg-white/70 px-4 py-3">
-            <p className="text-xs text-muted-foreground mb-2">Language</p>
+            <p className="text-xs text-muted-foreground mb-2">Language / Idioma</p>
             <div className="flex gap-2">
               <button
                 onClick={() => setLang("en")}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                  lang === "en" ? "bg-accent text-white" : "text-foreground/70 hover:text-foreground"
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex-1 justify-center ${
+                  lang === "en" 
+                    ? "bg-accent text-white shadow-md shadow-accent/30" 
+                    : "text-foreground/70 hover:text-foreground hover:bg-white/90 border border-border/30"
                 }`}
               >
-                🇺🇸 English
+                <span className="text-base">🇺🇸</span>
+                <span>English</span>
               </button>
               <button
                 onClick={() => setLang("es")}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                  lang === "es" ? "bg-accent text-white" : "text-foreground/70 hover:text-foreground"
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex-1 justify-center ${
+                  lang === "es" 
+                    ? "bg-accent text-white shadow-md shadow-accent/30" 
+                    : "text-foreground/70 hover:text-foreground hover:bg-white/90 border border-border/30"
                 }`}
               >
-                🇪🇸 Español
+                <span className="text-base">🇪🇸</span>
+                <span>Español</span>
               </button>
             </div>
           </div>

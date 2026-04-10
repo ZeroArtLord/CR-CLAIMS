@@ -1,4 +1,4 @@
-import { User, Mail, Phone, MessageSquare, Send } from "lucide-react";
+import { User, Mail, Phone, MessageSquare, Send, Home, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "../LanguageContext";
@@ -11,6 +11,8 @@ export function ContactFormSection() {
     phone: "",
     email: "",
     message: "",
+    propertyType: "",
+    damageType: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -19,7 +21,7 @@ export function ContactFormSection() {
     void submitForm();
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -51,7 +53,7 @@ export function ContactFormSection() {
       } else {
         const subject = encodeURIComponent("Free Inspection Request");
         const body = encodeURIComponent(
-          `Name: ${formData.firstName} ${formData.lastName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+          `Name: ${formData.firstName} ${formData.lastName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProperty Type: ${formData.propertyType}\nDamage Type: ${formData.damageType}\n\nMessage:\n${formData.message}`
         );
         window.location.href = `mailto:info@crclaimsflorida.com?subject=${subject}&body=${body}`;
       }
@@ -63,6 +65,8 @@ export function ContactFormSection() {
         phone: "",
         email: "",
         message: "",
+        propertyType: "",
+        damageType: "",
       });
     } catch (error) {
       console.error(error);
@@ -227,6 +231,60 @@ export function ContactFormSection() {
                       placeholder={content.contact.placeholderEmail}
                       required
                     />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label className="block text-sm font-light text-foreground">{content.contact.propertyType}</label>
+                    <div className="relative">
+                      <Home className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 z-10" />
+                      <select
+                        name="propertyType"
+                        value={formData.propertyType}
+                        onChange={handleChange}
+                        className="w-full pl-12 pr-10 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none cursor-pointer text-foreground"
+                        required
+                      >
+                        <option value="" className="text-muted-foreground/60">
+                          {content.contact.placeholderPropertyType}
+                        </option>
+                        {content.contact.propertyTypes.map((type) => (
+                          <option key={type.value} value={type.value} className="text-foreground">
+                            {type.label}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <div className="w-2 h-2 border-r border-b border-muted-foreground/60 rotate-45 -translate-y-1/2"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <label className="block text-sm font-light text-foreground">{content.contact.damageType}</label>
+                    <div className="relative">
+                      <AlertTriangle className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 z-10" />
+                      <select
+                        name="damageType"
+                        value={formData.damageType}
+                        onChange={handleChange}
+                        className="w-full pl-12 pr-10 py-3.5 bg-background/50 rounded-xl border border-border/30 focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none cursor-pointer text-foreground"
+                        required
+                      >
+                        <option value="" className="text-muted-foreground/60">
+                          {content.contact.placeholderDamageType}
+                        </option>
+                        {content.contact.damageTypes.map((type) => (
+                          <option key={type.value} value={type.value} className="text-foreground">
+                            {type.label}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <div className="w-2 h-2 border-r border-b border-muted-foreground/60 rotate-45 -translate-y-1/2"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
