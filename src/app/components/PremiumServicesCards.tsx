@@ -64,7 +64,7 @@ export function PremiumServicesCards() {
                   className={`relative bg-white sm:bg-gradient-to-br ${service.gradient} backdrop-blur-sm rounded-[2.25rem] lg:rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-xl shadow-black/8 hover:shadow-2xl hover:shadow-black/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer border border-border/20 sm:border-white/60 flex flex-col`}
                 >
                   {/* Soft lighting effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-transparent rounded-[2.25rem] lg:rounded-[2.5rem] pointer-events-none"></div>
+                  <div className="absolute inset-0 sm:bg-gradient-to-br sm:from-white/50 sm:via-transparent sm:to-transparent rounded-[2.25rem] lg:rounded-[2.5rem] pointer-events-none"></div>
 
                   <div className="relative">
                     {/* Icon */}
