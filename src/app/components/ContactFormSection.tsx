@@ -256,13 +256,16 @@ export function ContactFormSection() {
                       name="propertyType"
                       value={formData.propertyType}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-12 py-4 bg-white border border-[#eaeaea] rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-foreground/90 cursor-pointer transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_4px_15px_rgba(43,159,232,0.15)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.05)] hover:border-accent/40 appearance-none [-webkit-appearance:none] [-moz-appearance:none]"
+                      className="w-full pl-12 pr-12 py-4 bg-white border border-[#eaeaea] rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-foreground/90 cursor-pointer transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_4px_15px_rgba(43,159,232,0.15)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.05)] hover:border-accent/40"
                       required
                       style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'right 16px center',
-                        backgroundSize: '16px'
+                        backgroundSize: '16px',
+                        appearance: 'none',
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'none'
                       }}
                     >
                       <option value="" className="text-muted-foreground/60">Select property type / Tipo de propiedad</option>
@@ -287,13 +290,16 @@ export function ContactFormSection() {
                       name="damageType"
                       value={formData.damageType}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-12 py-4 bg-white border border-[#eaeaea] rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-foreground/90 cursor-pointer transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_4px_15px_rgba(43,159,232,0.15)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.05)] hover:border-accent/40 appearance-none [-webkit-appearance:none] [-moz-appearance:none]"
+                      className="w-full pl-12 pr-12 py-4 bg-white border border-[#eaeaea] rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-foreground/90 cursor-pointer transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_4px_15px_rgba(43,159,232,0.15)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.05)] hover:border-accent/40"
                       required
                       style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'right 16px center',
-                        backgroundSize: '16px'
+                        backgroundSize: '16px',
+                        appearance: 'none',
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'none'
                       }}
                     >
                       <option value="" className="text-muted-foreground/60">Select damage type / Tipo de daño</option>
