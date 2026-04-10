@@ -251,13 +251,19 @@ export function ContactFormSection() {
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Property Type</label>
                   <div className="relative group">
-                    <Home className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
+                    <Home className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80 z-10" />
                     <select
                       name="propertyType"
                       value={formData.propertyType}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-10 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 appearance-none cursor-pointer shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
+                      className="w-full pl-12 pr-12 py-4 bg-white border border-[#eaeaea] rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-foreground/90 cursor-pointer transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_4px_15px_rgba(43,159,232,0.15)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.05)] hover:border-accent/40 appearance-none [-webkit-appearance:none] [-moz-appearance:none]"
                       required
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 16px center',
+                        backgroundSize: '16px'
+                      }}
                     >
                       <option value="" className="text-muted-foreground/60">Select property type / Tipo de propiedad</option>
                       <option value="single-family" className="text-foreground py-2">Single Family Home</option>
@@ -268,12 +274,7 @@ export function ContactFormSection() {
                       <option value="multi-family" className="text-foreground py-2">Multi-Family Building</option>
                       <option value="other" className="text-foreground py-2">Other / Otro</option>
                     </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none transition-transform group-focus-within:rotate-180">
-                      <svg className="w-4 h-4 text-muted-foreground/60 group-focus-within:text-accent/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
@@ -281,13 +282,19 @@ export function ContactFormSection() {
                 <div className="space-y-3">
                   <label className="block text-sm font-light text-foreground">Damage Type</label>
                   <div className="relative group">
-                    <AlertTriangle className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80" />
+                    <AlertTriangle className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 transition-colors group-focus-within:text-accent/80 z-10" />
                     <select
                       name="damageType"
                       value={formData.damageType}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-10 py-3.5 bg-white/70 backdrop-blur-sm rounded-xl border border-border/40 focus:border-accent/60 focus:ring-2 focus:ring-accent/30 transition-all duration-300 appearance-none cursor-pointer shadow-sm hover:shadow-md hover:border-accent/40 hover:bg-white/80"
+                      className="w-full pl-12 pr-12 py-4 bg-white border border-[#eaeaea] rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-foreground/90 cursor-pointer transition-all duration-300 focus:outline-none focus:border-accent focus:shadow-[0_4px_15px_rgba(43,159,232,0.15)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.05)] hover:border-accent/40 appearance-none [-webkit-appearance:none] [-moz-appearance:none]"
                       required
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 16px center',
+                        backgroundSize: '16px'
+                      }}
                     >
                       <option value="" className="text-muted-foreground/60">Select damage type / Tipo de daño</option>
                       <option value="water" className="text-foreground py-2">Water Damage / Daño por agua</option>
@@ -299,12 +306,7 @@ export function ContactFormSection() {
                       <option value="roof" className="text-foreground py-2">Roof Damage / Daño en techo</option>
                       <option value="other" className="text-foreground py-2">Other / Otro</option>
                     </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none transition-transform group-focus-within:rotate-180">
-                      <svg className="w-4 h-4 text-muted-foreground/60 group-focus-within:text-accent/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                   </div>
                 </div>
 
